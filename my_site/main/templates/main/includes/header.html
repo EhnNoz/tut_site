@@ -1,0 +1,41 @@
+{% load static %}
+<header class="bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                  {% if site_logo %}
+                    <img src="{{ site_logo.image.url }}"
+                         alt="لوگوی سایت"
+                         class="logo"
+                         width="150"
+                         height="60">
+                  {% else %}
+                    <img src="{% static 'images/default-logo.png' %}"
+                         alt="لوگوی پیش‌فرض"
+                         class="logo"
+                         width="150"
+                         height="60">
+                  {% endif %}
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'articles' %}">مقالات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">درباره ما</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">تماس با ما</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

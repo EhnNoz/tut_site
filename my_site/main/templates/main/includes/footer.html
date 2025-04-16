@@ -1,0 +1,28 @@
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>درباره ما</h5>
+                <p>توضیحات مختصری درباره شرکت یا وبسایت</p>
+            </div>
+            <div class="col-md-4">
+                <h5>لینک‌های سریع</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-white">صفحه اصلی</a></li>
+                    <li><a href="{% url 'articles' %}" class="text-white">مقالات</a></li>
+                    <li><a href="{% url 'about' %}" class="text-white">درباره ما</a></li>
+                    <li><a href="{% url 'contact' %}" class="text-white">تماس با ما</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>تماس با ما</h5>
+                <p><i class="fas fa-phone me-2"></i> تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</p>
+                <p><i class="fas fa-envelope me-2"></i> ایمیل: info@example.com</p>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <p>تمامی حقوق محفوظ است &copy; ۱۴۰۲</p>
+        </div>
+    </div>
+</footer>

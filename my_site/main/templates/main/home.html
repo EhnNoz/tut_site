@@ -1,0 +1,167 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<!-- بخش اول: اسلایدشو -->
+<div id="mainCarousel" class="carousel slide text-dark bg-light" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for slide in slides %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="container py-1">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1>{{ slide.title }}</h1>
+                        <p>{{ slide.description }}</p>
+                    </div>
+                    <div class="col-md-6 text-start">
+                        <img src="{{ slide.image.url }}" class="fixed-size-img ms-3" alt="{{ slide.title }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- بخش دوم: عکس و متن -->
+<!--<section class="py-5">-->
+<!--    <div class="container">-->
+<!--        <div class="row align-items-center">-->
+<!--            <div class="col-md-6">-->
+<!--                <img src="/static/images/section1.jpg" class="img-fluid rounded" alt="بخش اول">-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--                <h2 class="mb-4">تیتر بخش دوم</h2>-->
+<!--                <p>توضیحات مربوط به این بخش در اینجا قرار می‌گیرد. می‌توانید متن خود را اینجا بنویسید.</p>-->
+<!--                <a href="#" class="btn btn-primary mt-3">اطلاعات بیشتر</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+{% if section2 %}
+<div class="my-section bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ section2.image.url }}" alt="{{ section2.title }}" class="home-section-img">
+            </div>
+            <div class="col-md-6">
+                <h2>{{ section2.title }}</h2>
+                <p>{{ section2.description|linebreaks }}</p>
+                {% if section2.button_url %}
+                <a href="{{ section2.button_url }}" class="btn btn-primary">
+                    {{ section2.button_text }}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- بخش سوم: شمارنده‌ها -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center">
+            {% for counter in counters %}
+            <div class="col-md-3">
+                <div class="counter-box shadow p-2 rounded-3">
+                   <div class="mb-2 fs-6 text-success"> <i class="{{ counter.icon }} fa-2x text-primary"></i></div>
+                    <div class="text-muted font-weight-bold">{{ counter.title }}</div>
+                    <div class="counter-number fs-3 font-weight-bold" data-target="{{ counter.number }}">0</div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- بخش چهارم: مثل بخش دوم -->
+<!--<section class="py-5">-->
+<!--    <div class="container">-->
+<!--        <div class="row align-items-center">-->
+<!--            <div class="col-md-6 order-md-2">-->
+<!--                <img src="/static/images/section2.jpg" class="img-fluid rounded" alt="بخش دوم">-->
+<!--            </div>-->
+<!--            <div class="col-md-6 order-md-1">-->
+<!--                <h2 class="mb-4">تیتر بخش چهارم</h2>-->
+<!--                <p>توضیحات مربوط به این بخش در اینجا قرار می‌گیرد. می‌توانید متن خود را اینجا بنویسید.</p>-->
+<!--                <a href="#" class="btn btn-primary mt-3">اطلاعات بیشتر</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+{% if section4 %}
+<div class="my-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+                <img src="{{ section4.image.url }}" alt="{{ section4.title }}" class="home-section-img">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <h2>{{ section4.title }}</h2>
+                <p>{{ section4.description|linebreaks }}</p>
+                {% if section4.button_url %}
+                <a href="{{ section4.button_url }}" class="btn btn-primary">
+                    {{ section4.button_text }}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- بخش پنجم: بنر -->
+<section class="py-5 bg-success text-white text-center">
+    <div class="container">
+        <h2>بنر تبلیغاتی یا اطلاع رسانی</h2>
+        <p class="lead">متن توضیحی برای بنر</p>
+        <a href="#" class="btn btn-light btn-lg mt-3">دکمه اقدام</a>
+    </div>
+</section>
+
+<!-- بخش ششم: مثل بخش دوم و چهارم -->
+<!--<section class="py-5">-->
+<!--    <div class="container">-->
+<!--        <div class="row align-items-center">-->
+<!--            <div class="col-md-6">-->
+<!--                <img src="/static/images/section3.jpg" class="img-fluid rounded" alt="بخش سوم">-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--                <h2 class="mb-4">تیتر بخش ششم</h2>-->
+<!--                <p>توضیحات مربوط به این بخش در اینجا قرار می‌گیرد. می‌توانید متن خود را اینجا بنویسید.</p>-->
+<!--                <a href="#" class="btn btn-primary mt-3">اطلاعات بیشتر</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+{% if section6 %}
+<div class="my-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2">
+                <img src="{{ section6.image.url }}" alt="{{ section6.title }}" class="home-section-img">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <h2>{{ section6.title }}</h2>
+                <p>{{ section6.description|linebreaks }}</p>
+                {% if section6.button_url %}
+                <a href="{{ section6.button_url }}" class="btn btn-primary">
+                    {{ section6.button_text }}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- بخش هفتم: ارتباط با ما -->
+{% include 'main/includes/contact_section.html' %}
+{% endblock %}
