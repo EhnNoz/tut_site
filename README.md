@@ -1,0 +1,1 @@
+**This is a tutorial site based on django**
